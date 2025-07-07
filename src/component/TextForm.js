@@ -21,6 +21,9 @@ export default function TextForm(props) {
     // console.log("Clear Text was clicked");
     // setText("You have clicked on the button to clear the text");
   };
+  const handleCopyText = () => {
+    navigator.clipboard.writeText(text); // Copies the current text to the clipboard
+  }
   const [text, setText] = useState("Enter alphanumeric text here");
   return (
     <>
@@ -34,19 +37,25 @@ export default function TextForm(props) {
           rows="8"
           value={text}
           onChange={handleOnChange}
+          style={{ backgroundColor: props.mode==='dark'?'lightblue':
+            'white', color: 'black' }}
         ></textarea>
         <button
-          className="btn btn-primary"
+          className="btn btn-primary  my-2"
           onClick={handleUpClick}
         >Convert to Uppercase</button>   
         <button
-          className="btn btn-primary"
+          className="btn btn-primary mx-2"
           onClick={handleLowerClick}
         >Convert to LowerCase</button>   
         <button
-          className="btn btn-primary"
+          className="btn btn-primary mx-2"
           onClick={handleClearText}
         >Clear Text</button>   
+        <button
+          className="btn btn-primary mx-2"
+          onClick={handleCopyText}
+        >Copy Text</button> 
       </div>
 
       <div className="Container my-3">
