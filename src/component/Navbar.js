@@ -19,15 +19,19 @@ export default function Navbar(props) {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+        
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="/">
-                {props.homeText}
-              </a>
-            </li>
-          </ul>
+              <ul className="navbar-nav mr-auto">
+      <li className="nav-item active">
+        <a className="nav-link" href="/">{props.homeText}</a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="/">About</a>
+      </li>
+      
+      
+    </ul>
           <form className="form-inline d-flex">
             <input
               className="form-control mr-2"
@@ -45,11 +49,12 @@ export default function Navbar(props) {
 }
 
 Navbar.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   homeText: PropTypes.string    
 };
 
 Navbar.defaultProps = {
   title: 'Set Title Here',
-  homeText: 'Home'
+  homeText: 'Home',
+  AboutText: 'About Us'
 };

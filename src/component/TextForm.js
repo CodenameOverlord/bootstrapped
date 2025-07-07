@@ -11,6 +11,16 @@ export default function TextForm(props) {
         console.log(event.target.value); // Logs the current value of the textarea
     console.log("Uppercase On change");
   };
+  const handleLowerClick = ()=>{
+    setText(text.toLowerCase()); // Converts the current text to lowercase and updates the state    
+    // console.log("Lowercase was clicked");
+    // setText("You have clicked on the button to convert text to lowercase");
+  }
+  const handleClearText = () => {
+    setText(""); // Clears the text state
+    // console.log("Clear Text was clicked");
+    // setText("You have clicked on the button to clear the text");
+  };
   const [text, setText] = useState("Enter alphanumeric text here");
   return (
     <>
@@ -29,6 +39,24 @@ export default function TextForm(props) {
           className="btn btn-primary"
           onClick={handleUpClick}
         >Convert to Uppercase</button>   
+        <button
+          className="btn btn-primary"
+          onClick={handleLowerClick}
+        >Convert to LowerCase</button>   
+        <button
+          className="btn btn-primary"
+          onClick={handleClearText}
+        >Clear Text</button>   
+      </div>
+
+      <div className="Container my-3">
+        <h2>Your text summary</h2>
+        <p>The text is of {text.split(" ").length} words and {text.length} characters</p>
+        <p>Average time to read the text is {text.length*0.008} minutes</p>
+        <h2>Preview</h2>               
+        <p>{text.length > 0 ? text : "Enter something in the textbox above to preview it here"}</p>
+
+
       </div>
     </>
   );
