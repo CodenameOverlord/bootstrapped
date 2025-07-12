@@ -4,7 +4,9 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     console.log("Uppercase was clicked");
     // setText("You have clicked on the button to convert text to uppercase");
-    setText(text.toUpperCase()); // Converts the current text to uppercase and updates the state
+    setText(text.toUpperCase());
+    props.showAlert("Text has been converted to uppercase", "success");
+ // Converts the current text to uppercase and updates the state
   };
     const handleOnChange = (event) => {
         setText(event.target.value);    // Updates the text state with the value from the textarea
@@ -12,17 +14,21 @@ export default function TextForm(props) {
     console.log("Uppercase On change");
   };
   const handleLowerClick = ()=>{
-    setText(text.toLowerCase()); // Converts the current text to lowercase and updates the state    
+    setText(text.toLowerCase()); 
+    props.showAlert("Text has been converted to lowercase", "success");
+    // Converts the current text to lowercase and updates the state    
     // console.log("Lowercase was clicked");
     // setText("You have clicked on the button to convert text to lowercase");
   }
   const handleClearText = () => {
-    setText(""); // Clears the text state
+    setText("");
+    props.showAlert("Text has been cleared", "success") // Clears the text state
     // console.log("Clear Text was clicked");
     // setText("You have clicked on the button to clear the text");
   };
   const handleCopyText = () => {
-    navigator.clipboard.writeText(text); // Copies the current text to the clipboard
+    navigator.clipboard.writeText(text); 
+    props.showAlert('Text has been copied', "success")// Copies the current text to the clipboard
   }
   const [text, setText] = useState("Enter alphanumeric text here");
   return (
