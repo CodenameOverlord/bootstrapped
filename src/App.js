@@ -40,13 +40,14 @@ function App() {
   };
   return (
     <>
-      <Navbar
+
+      <BrowserRouter>
+            <Navbar
         title="TextUtils"
         homeText="Home"
         mode={mode}
         toggleMode={toggleMode}
       />
-      <BrowserRouter>
         <Routes>
           <Route
             path="/"
